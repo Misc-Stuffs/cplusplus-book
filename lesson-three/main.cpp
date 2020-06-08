@@ -123,7 +123,7 @@ int main() {
 }
 */
 
-// Listing 3.5 - Finding the Size of Standard C++ Variable Types
+/* Listing 3.5 - Finding the Size of Standard C++ Variable Types
 #include <iostream>
 using namespace std;
 
@@ -144,6 +144,158 @@ int main() {
     cout << "Size of float: " << sizeof(float) << endl;
     cout << "Size of double: " << sizeof(double) << endl;
     cout << "The output changes with compiler, hardware and OS." << endl;
+
+    return 0;
+
+}
+*/
+
+/* Listing 3.6 - Using the keyword "auto" and relying on the compilers type-inference capabilities
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    auto coinFlippedHeads = true;
+    auto largeNumber = 2'500'000'000'000;
+
+    cout << "coinFlippedHeads = " << coinFlippedHeads;
+    cout << " , sizeof(coinFlippedHeads) = " << sizeof(coinFlippedHeads) << endl;
+
+    cout << "largeNumber = " << largeNumber;
+    cout << " , sizeof(largeNumber) = " << sizeof(largeNumber) << endl;
+
+    return 0;
+
+}
+*/
+
+/* Keyword - typedef (type definition)
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    typedef unsigned int STRICTLY_POSITIVE_INTEGER;
+    STRICTLY_POSITIVE_INTEGER numEggsInBasket = 5679;
+
+    cout << numEggsInBasket << endl;
+
+    return 0;
+
+}
+*/
+
+/* Listing 3.7 - Declaring a constant 'pi'
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    const double pi = 22.0 / 7;
+
+    cout << "The value of constant pi is: " << pi << endl;
+
+    //Uncomment to view compile failure
+    //pi = 345;
+
+    return 0;
+
+}
+*/
+
+/* Listing 3.8 - Demonstrating "constexpr" to Calculate Pi
+#include <iostream>
+constexpr double GetPi() { return 22.0 / 7; }
+constexpr double TwicePi() { return 2 * GetPi(); }
+using namespace std;
+
+int main() {
+
+    const double pi = 22.0 / 7;
+
+    cout << "constant pi contains value " << pi << endl;
+    cout << "constexpr GetPi() returns value " << GetPi() << endl;
+    cout << "constexpr TwicePi() returns value " << TwicePi() << endl;
+
+    return 0;
+
+}
+*/
+
+/* Listing 3.9 - Using Enumerated Values to Indicate Cardinal Wind Directions
+#include <iostream>
+using namespace std;
+
+enum CardinalDirections {
+
+    North = 25,
+    South,
+    East,
+    West
+
+};
+
+int main() {
+
+    cout << "Displaying directions and their symbolic values" << endl;
+    cout << "North: " << North << endl;
+    cout << "South: " << South << endl;
+    cout << "East: " << East << endl;
+    cout << "West: " << West << endl;
+
+    CardinalDirections windDirection = South;
+    cout << "Variable windDirection = " << windDirection << endl;
+
+    return 0;
+
+}
+*/
+
+/* Exercise 2
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    unsigned int positiveNumber = 100;
+    int regularNumber = -150;
+    long int longNumber = 150'000'000;
+
+    cout << "unsigned int positiveNumber sizeof: " << sizeof(positiveNumber) << endl;
+    cout << "int regularNumber sizeof: " << sizeof(regularNumber) << endl;
+    cout << "long int longNumber sizeof: " << sizeof(longNumber) << endl;
+
+    return 0;
+
+}
+*/
+
+// Exercise 3
+#include <iostream>
+using namespace std;
+constexpr double Pi() { return 22.0 / 7; }
+double circleRadius, circleArea, circleCircumference = 0.0;
+
+double calculateAreaAndCircumference() {
+
+    circleArea = Pi() * circleRadius * circleRadius;
+    circleCircumference = 2 * Pi() * circleRadius;
+
+    return circleCircumference, circleArea;
+
+}
+
+int main() {
+
+    cout << "Enter circle radius: ";
+    cin >> circleRadius;
+
+    calculateAreaAndCircumference();
+
+    cout << "Circle Radius: " << circleRadius << endl;
+    cout << "Circle Circumference: " << circleCircumference << endl;
+    cout << "Circle Area: " << circleArea << endl;
 
     return 0;
 
