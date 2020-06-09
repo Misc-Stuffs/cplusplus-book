@@ -277,12 +277,10 @@ using namespace std;
 constexpr double Pi() { return 22.0 / 7; }
 double circleRadius, circleArea, circleCircumference = 0.0;
 
-double calculateAreaAndCircumference() {
+void calculateAreaAndCircumference() {
 
     circleArea = Pi() * circleRadius * circleRadius;
     circleCircumference = 2 * Pi() * circleRadius;
-
-    return circleCircumference, circleArea;
 
 }
 
