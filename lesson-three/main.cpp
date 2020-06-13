@@ -275,25 +275,41 @@ int main() {
 #include <iostream>
 using namespace std;
 constexpr double Pi() { return 22.0 / 7; }
-double circleRadius, circleArea, circleCircumference = 0.0;
 
-void calculateAreaAndCircumference() {
+double calculateCircleArea(double circleRadius) {
 
-    circleArea = Pi() * circleRadius * circleRadius;
-    circleCircumference = 2 * Pi() * circleRadius;
+    double areaResult = 0.0;
+
+    areaResult = Pi() * circleRadius * circleRadius;
+
+    return areaResult;
+
+}
+
+double calculateCircleCircumference(double circleRadius) {
+
+    double circumferenceResult = 0.0;
+
+    circumferenceResult = 2 * Pi() * circleRadius;
+
+    return circumferenceResult;
 
 }
 
 int main() {
 
+    double circleRadius = 0.0;
+    double circleMeasurements [2] = {};
+
     cout << "Enter circle radius: ";
     cin >> circleRadius;
 
-    calculateAreaAndCircumference();
+    circleMeasurements [0] = calculateCircleArea(circleRadius);
+    circleMeasurements [1] = calculateCircleCircumference(circleRadius);
 
     cout << "Circle Radius: " << circleRadius << endl;
-    cout << "Circle Circumference: " << circleCircumference << endl;
-    cout << "Circle Area: " << circleArea << endl;
+    cout << "Circle Circumference: " << circleMeasurements [0] << endl;
+    cout << "Circle Area: " << circleMeasurements [1] << endl;
 
     return 0;
 
